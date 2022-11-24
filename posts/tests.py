@@ -45,7 +45,7 @@ class PostDetailViewTest(APITestCase):
     def test_user_cant_fetch_a_post_by_invalid_id(self):
         response = self.client.get('/posts/3/')
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
-    
+
     def test_user_can_update_own_post(self):
         self.client.login(username='adam', password='pass')
         response = self.client.put('/posts/1/', {'title': 'a new title'})
