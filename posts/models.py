@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from profiles.models import Profile
 
 
 class Post(models.Model):
@@ -23,10 +24,10 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(blank=True)
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_ymkphw.jpg',
+        upload_to='images/', default='../default_post_wmlygq.jpg',
                   blank=True
     )
-    image_filter = models.Charfield(
+    image_filter = models.CharField(
         max_length=32, choices=image_filter_choices, default='normal'
     )
 
