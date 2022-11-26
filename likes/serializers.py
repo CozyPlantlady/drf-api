@@ -3,7 +3,7 @@ from rest_framework import serializers
 from likes.models import Like
 
 
-class LikeSerializer(Serializers.ModelSerializer):
+class LikeSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
 
     class Meta():
@@ -12,7 +12,7 @@ class LikeSerializer(Serializers.ModelSerializer):
             'id', 'owner', 'post', 'created_at'
         ]
 
-    def create(self, validate_data):
+    def create(self, validated_data):
         try:
             return super().create(validated_data)
         except IntegrityError:
