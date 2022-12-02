@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import re
 from pathlib import Path
 import os
 import dj_database_url
@@ -61,7 +62,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'api-practice-for-cozy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', os.environ.get('ALLOWED_HOST'),]
 
 
 # Application definition
